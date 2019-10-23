@@ -15,16 +15,12 @@ class App extends React.Component {
 
   filterUpdate(value) {
     //Here you will need to set the filterText property of state to the value passed into this function
-    this.setState({filterText: value});
+    this.setState({filterText: value}); // filterText for parent in heir.
   }
 
   selectedUpdate(id) {
     //Here you will need to update the selectedBuilding property of state to the id passed into this function
-    this.setState({selectedBuilding: id});
-  }
-
-  showInfo(id) {
-    this.setState({selectedBuilding: id});
+    this.setState({selectedBuilding: id}); // SelectedBuilding for parent
   }
 
   render() {
@@ -49,13 +45,13 @@ class App extends React.Component {
                   <BuildingList
                     data={this.props.data}
                     filterText = {this.state.filterText}
-                    onChange = {this.showInfo.bind(this)}
+                    onChange = {this.selectedUpdate.bind(this)} // Used for the text box entry
                   />
                 </table>
               </div>
             </div>
             <div className="column2">
-              <ViewBuilding data={this.props.data} selectedBuilding={this.state.selectedBuilding}/>
+              <ViewBuilding data={this.props.data} selectedBuilding={this.state.selectedBuilding}/> 
             </div>
           </div>
           <Credit />

@@ -5,13 +5,13 @@ class ViewBuilding extends React.Component {
 
 		var buildingInfo;
 
-		if (this.props.selectedBuilding == 0) {
-			buildingInfo = <i>Click on a name to view more information</i>
+		if (this.props.selectedBuilding !== 0) {
+			var buildingToDisplay = this.props.data.find((building) => { return (building.id === this.props.selectedBuilding) } );
+			buildingInfo = <i>{buildingToDisplay.name}</i>
 		}
 		else 
 		{
-			var buildingToDisplay = this.props.data.find((building) => { return (building.id === this.props.selectedBuilding) } );
-			buildingInfo = <i>{buildingToDisplay.name}</i>
+			buildingInfo = <i>Click on a name to view more information</i>
 		}
 
 		return (
