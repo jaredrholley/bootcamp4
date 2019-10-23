@@ -2,6 +2,11 @@ import React from 'react';
 
 class BuilingList extends React.Component {
 	
+	showInfo(id) {
+		console.log(id);
+		this.props.onChange(id);
+	}
+
 	render() {
 
 		console.log('This is my filter text', this.props.filterText);
@@ -12,7 +17,7 @@ class BuilingList extends React.Component {
 
 		const buildingList = data.map(directory => {
 			return (
-				<tr key={directory.id}>
+				<tr key={directory.id} onClick={() => this.showInfo(directory.id)}>
 					<td>{directory.code} </td>
 					<td> {directory.name} </td>
 				</tr>

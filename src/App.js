@@ -23,6 +23,10 @@ class App extends React.Component {
     this.setState({selectedBuilding: id});
   }
 
+  showInfo(id) {
+    this.setState({selectedBuilding: id});
+  }
+
   render() {
     
     return (
@@ -45,12 +49,13 @@ class App extends React.Component {
                   <BuildingList
                     data={this.props.data}
                     filterText = {this.state.filterText}
+                    onChange = {this.showInfo.bind(this)}
                   />
                 </table>
               </div>
             </div>
             <div className="column2">
-              <ViewBuilding />
+              <ViewBuilding data={this.props.data} selectedBuilding={this.state.selectedBuilding}/>
             </div>
           </div>
           <Credit />
