@@ -7,6 +7,11 @@ class BuilingList extends React.Component {
 		this.props.onChange(id);
 	}
 
+	deleteListing(id) {
+		this.props.data.splice(id, 1);
+		this.forceUpdate();
+	}
+
 	render() {
 
 		console.log('This is my filter text', this.props.filterText);
@@ -15,12 +20,12 @@ class BuilingList extends React.Component {
 
 		var data = this.props.data.filter((building) => { return (!building.name.toLowerCase().indexOf(input))});
 
-		const buildingList = data.map(directory => {
+		const buildingList = data.map((directory, relativeID) => {
 			return (
-				<tr key={directory.id} onClick={() => this.showInfo(directory.id)}>
-					<td>{directory.code} </td>
-					<td> {directory.name} </td>
-					<button variant="secondary" size="sm">X</button>
+				<tr key={directory.id} >
+					<td onClick={() => this.showInfo(directory.id)}>{directory.code} </td>
+					<td onClick={() => this.showInfo(directory.id)}> {directory.name} </td>
+					<button variant="secondary" size="sm" onClick={() => {this.deleteListing(relativeID)}}>X</button>
 				</tr>
 			);
 		});

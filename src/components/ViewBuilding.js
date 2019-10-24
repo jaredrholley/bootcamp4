@@ -8,7 +8,7 @@ class ViewBuilding extends React.Component {
 		var coordinates = "";
 		var address = "";
 
-		if (this.props.selectedBuilding !== 0) {
+		if (this.props.selectedBuilding !== 0 && this.props.data.find((building) => { return (building.id === this.props.selectedBuilding) } ) != null) {
 			buildingInfo = this.props.data.find((building) => { return (building.id === this.props.selectedBuilding) } );
 			headerInfo = <b>{buildingInfo.name}</b>
 
