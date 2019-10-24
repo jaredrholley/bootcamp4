@@ -20,6 +20,7 @@ class BuilingList extends React.Component {
 				<tr key={directory.id} onClick={() => this.showInfo(directory.id)}>
 					<td>{directory.code} </td>
 					<td> {directory.name} </td>
+					<button variant="secondary" size="sm">X</button>
 				</tr>
 			);
 		});
