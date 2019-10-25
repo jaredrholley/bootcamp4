@@ -3,7 +3,7 @@ import React from 'react';
 class BuilingList extends React.Component {
 	
 	showInfo(id) {
-		console.log(id);
+		//console.log(id);
 		this.props.onChange(id);
 	}
 
@@ -14,11 +14,11 @@ class BuilingList extends React.Component {
 
 	render() {
 
-		console.log('This is my filter text', this.props.filterText);
+		//console.log('This is my filter text', this.props.filterText);
 
 		const input = this.props.filterText.toLowerCase();
 
-		console.log(this.props.data);
+		//console.log(this.props.data);
 
 		var data = this.props.data.filter((building) => {
 			

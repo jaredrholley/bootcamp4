@@ -25,17 +25,17 @@ class AddBuilding extends React.Component {
 
     latitudeUpdate(latitude) {
         this.setState({latitude: latitude.target.value});
-		this.props.changeName(latitude.target.value);
+		this.props.changeLatitude(latitude.target.value);
     }
 
     longitudeUpdate(longitude) {
         this.setState({longitude: longitude.target.value});
-		this.props.changeName(longitude.target.value);
+		this.props.changeLongitude(longitude.target.value);
     }
 
     addressUpdate(address) {
         this.setState({address: address.target.value});
-		this.props.changeName(address.target.value);
+		this.props.changeAddress(address.target.value);
     }
 
 	render() {

@@ -54,7 +54,7 @@ class App extends React.Component {
     this.setState({buildingTemplate : revised}); 
   }
 
-  changeLongtitude(longitude) {
+  changeLongitude(longitude) {
     var revised = this.state.buildingTemplate;
     revised.coordinates.longitude = longitude;
     this.setState({buildingTemplate : revised}); 
@@ -64,6 +64,14 @@ class App extends React.Component {
     var revised = this.state.buildingTemplate;
     revised.address = address;
     this.setState({buildingTemplate : revised}); 
+  }
+
+  commitBuildingToList() {
+    var revised = this.state.buildingTemplate;
+    revised.id = this.props.data.length+1;
+    this.setState({buildingTemplate : revised}); 
+    this.props.data.push(this.state.buildingTemplate);
+    console.log(this.state.buildingTemplate)
   }
 
   render() {
@@ -98,7 +106,8 @@ class App extends React.Component {
             </div>
             <div className="column3">
                <AddBuilding changeCode={this.changeCode.bind(this)} changeName={this.changeName.bind(this)} changeLatitude={this.changeLatitude.bind(this)} 
-               changeLongtitude={this.changeLongtitude.bind(this)} changeAddress={this.changeAddress.bind(this)}/>
+               changeLongitude={this.changeLongitude.bind(this)} changeAddress={this.changeAddress.bind(this)}/>
+               <button variant="secondary" size="sm" onClick={() => {this.commitBuildingToList()}}>Add Building</button>
             </div>
           </div>
           <Credit />
