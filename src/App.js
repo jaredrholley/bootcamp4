@@ -4,12 +4,14 @@ import ViewBuilding from './components/ViewBuilding';
 import BuildingList from './components/BuildingList';
 import Credit from './components/Credit';
 
+
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       filterText: '',
-      selectedBuilding: 0
+      selectedBuilding: 0,
     };
   }
 
@@ -52,6 +54,10 @@ class App extends React.Component {
             </div>
             <div className="column2">
               <ViewBuilding data={this.props.data} selectedBuilding={this.state.selectedBuilding}/> 
+            </div>
+            <div className="column3">
+               <b>Add Building Form</b>
+               <input type="text" class="form-control" placeholder="Test form input"></input>
             </div>
           </div>
           <Credit />
