@@ -106,8 +106,7 @@ class App extends React.Component {
             </div>
             <div className="column3">
                <AddBuilding changeCode={this.changeCode.bind(this)} changeName={this.changeName.bind(this)} changeLatitude={this.changeLatitude.bind(this)} 
-               changeLongitude={this.changeLongitude.bind(this)} changeAddress={this.changeAddress.bind(this)}/>
-               <button variant="secondary" size="sm" onClick={() => {this.commitBuildingToList()}}>Add Building</button>
+               changeLongitude={this.changeLongitude.bind(this)} changeAddress={this.changeAddress.bind(this)} commitBuildingToList={this.commitBuildingToList.bind(this)}/>
             </div>
           </div>
           <Credit />

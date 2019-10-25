@@ -38,14 +38,20 @@ class AddBuilding extends React.Component {
 		this.props.changeAddress(address.target.value);
     }
 
+    commitBuildingToList() {
+        this.props.commitBuildingToList();
+    }
+
 	render() {
 
 		return (<><b>Add Building Form</b>
-            <input type="text" placeholder="Building Code" value={this.state.value} onChange = {this.codeUpdate}></input>
-            <input type="text" placeholder="Building Name" value={this.state.value} onChange = {this.nameUpdate}></input>
-            <input type="text" placeholder="Building Latitude" value={this.state.value} onChange = {this.latitudeUpdate}></input>
-            <input type="text" placeholder="Building Longitude" value={this.state.value} onChange = {this.longitudeUpdate}></input>
-            <input type="text" placeholder="Building Address" value={this.state.value} onChange = {this.addressUpdate}></input></>);
+            <input type="text" placeholder="Building Code" ref="buildingField1" value={this.state.value} onChange = {this.codeUpdate}></input>
+            <input type="text" placeholder="Building Name" ref="buildingField2" value={this.state.value} onChange = {this.nameUpdate}></input>
+            <input type="text" placeholder="Building Latitude" ref="buildingField3" value={this.state.value} onChange = {this.latitudeUpdate}></input>
+            <input type="text" placeholder="Building Longitude" ref="buildingField4" value={this.state.value} onChange = {this.longitudeUpdate}></input>
+            <input type="text" placeholder="Building Address" ref="buildingField5" value={this.state.value} onChange = {this.addressUpdate}></input>
+            <button variant="secondary" size="sm" onClick={() => {this.refs.buildingField1.value=""; this.refs.buildingField2.value=""; this.refs.buildingField3.value="";
+            this.refs.buildingField4.value=""; this.refs.buildingField5.value=""; this.commitBuildingToList()}}>Add Building</button></>);
 	}
 }
 export default AddBuilding;
