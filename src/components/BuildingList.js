@@ -38,7 +38,23 @@ class BuilingList extends React.Component {
 			);
 		});
 
-		return <div>{buildingList}</div>;
+
+		
+		return (
+		<div class="table-responsive">
+		<table class="table">
+		  <thead>
+			<tr>
+			  <th scope="col">Building Code</th>
+			  <th scope="col">Building Name</th>
+			  <th scope="col">Remove Listing</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			{buildingList}
+		  </tbody>
+		  </table>
+		  </div>);
 	}
 }
 export default BuilingList;

@@ -22,8 +22,10 @@ class Search extends React.Component {
 		
 		return (
 			<form>
-				<input type="text" placeholder="Type to Filter" value={this.state.value}
-				 onChange = {this.filterUpdate} />
+				<div class="md-form active-cyan active-cyan-2 mb-3">
+				<input class="form-control" type="text" placeholder="Type to Filter" value={this.state.value}
+				 onChange = {this.filterUpdate} aria-label="Search"></input>
+			    </div>
 			</form>
 		);
 	}

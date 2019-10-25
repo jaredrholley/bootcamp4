@@ -28,10 +28,10 @@ class ViewBuilding extends React.Component {
 
 			return (
 				<div>
-					<p>
-						{' '}
-						<h3>{headerInfo}</h3>
-					</p>
+					<div class="jumbotron">
+					<h4 class="display-8">{headerInfo}</h4>
+					<hr class="my-4"></hr>
+					</div>
 				</div>
 			);
 
@@ -39,14 +39,13 @@ class ViewBuilding extends React.Component {
 
 		return (
 			<div>
-				<p>
-					{' '}
-					<h3>{headerInfo}</h3>
-					<td>Building Code :  {buildingInfo.code}</td><br/>
+				<div class="jumbotron">
+				<h4 class="display-8">{headerInfo}</h4>
+				<hr class="my-4"></hr>
+					<p class="card-text"><td>Building Code :  {buildingInfo.code}</td><br/>
 					<td>{address}</td><br/>
-					<td>{coordinates}</td>
-					
-				</p>
+					<td>{coordinates}</td></p>
+				</div>
 			</div>
 		);
 	}

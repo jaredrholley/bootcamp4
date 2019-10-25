@@ -87,21 +87,14 @@ class App extends React.Component {
           <div className="row">
             <div className="column1">
               <div className="tableWrapper">
-                <table className="table table-striped table-hover">
-                  <tr>
-                    <td>
-                      <b>Code Building</b>
-                    </td>
-                  </tr>
                   <BuildingList
                     data={this.props.data}
                     filterText = {this.state.filterText}
                     onChange = {this.selectedUpdate.bind(this)} // Used for the text box entry
                   />
-                </table>
               </div>
             </div>
-            <div className="column2">
+            <div>
               <ViewBuilding data={this.props.data} selectedBuilding={this.state.selectedBuilding}/>
             </div>
             <div className="column3">
