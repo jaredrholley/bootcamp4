@@ -18,7 +18,15 @@ class BuilingList extends React.Component {
 
 		const input = this.props.filterText.toLowerCase();
 
-		var data = this.props.data.filter((building) => { return (!building.name.toLowerCase().indexOf(input))});
+		console.log(this.props.data);
+
+		var data = this.props.data.filter((building) => {
+			
+			if (building.name != null) {
+				return (!building.name.toLowerCase().indexOf(input))
+			}
+				return false;
+			});
 
 		const buildingList = data.map((directory, relativeID) => {
 			return (
