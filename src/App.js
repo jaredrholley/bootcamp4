@@ -11,10 +11,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      dataLength: this.props.data.length,
       filterText: '',
-      selectedBuilding: 0,
+      selectedBuilding: null,
       buildingTemplate:{
-        id: 0,
+        id: null,
         code: '',
         name: '',
         coordinates:{
@@ -40,38 +41,58 @@ class App extends React.Component {
     var revised = this.state.buildingTemplate;
     revised.code = code;
     this.setState({buildingTemplate : revised});
+    revised = null;
   }
 
   changeName(name) {
     var revised = this.state.buildingTemplate;
     revised.name = name;
     this.setState({buildingTemplate : revised}); 
+    revised = null;
   }
 
   changeLatitude(latitude) {
     var revised = this.state.buildingTemplate;
     revised.coordinates.latitude = latitude;
     this.setState({buildingTemplate : revised}); 
+    revised = null;
   }
 
   changeLongitude(longitude) {
     var revised = this.state.buildingTemplate;
     revised.coordinates.longitude = longitude;
     this.setState({buildingTemplate : revised}); 
+    revised = null;
   }
 
   changeAddress(address) {
     var revised = this.state.buildingTemplate;
     revised.address = address;
     this.setState({buildingTemplate : revised}); 
+    revised = null;
   }
 
   commitBuildingToList() {
     var revised = this.state.buildingTemplate;
-    revised.id = this.props.data.length+1;
+    revised.id = this.state.dataLength+1;
+    this.setState({dataLength : this.state.dataLength+1});
     this.setState({buildingTemplate : revised}); 
     this.props.data.push(this.state.buildingTemplate);
     console.log(this.state.buildingTemplate)
+
+    revised = {
+      id: null,
+      code: '',
+      name: '',
+      coordinates:{
+        latitude: null,
+        longitude: null
+      },
+      address: ''
+    };
+    console.log(this.state.buildingTemplate);
+    this.setState({buildingTemplate : revised});
+    
   }
 
   render() {

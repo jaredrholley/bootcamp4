@@ -8,7 +8,10 @@ class BuilingList extends React.Component {
 	}
 
 	deleteListing(id) {
-		this.props.data.splice(id, 1);
+		
+		var index = this.props.data.indexOf(id);
+		this.props.data.splice(index, 1);
+
 		this.forceUpdate();
 	}
 
@@ -33,7 +36,7 @@ class BuilingList extends React.Component {
 				<tr key={directory.id} >
 					<td onClick={() => this.showInfo(directory.id)}>{directory.code} </td>
 					<td onClick={() => this.showInfo(directory.id)}> {directory.name} </td>
-					<button variant="secondary" size="sm" onClick={() => {this.deleteListing(relativeID)}}>X</button>
+					<button variant="secondary" size="sm" onClick={() => {this.deleteListing(directory)}}>X</button>
 				</tr>
 			);
 		});
